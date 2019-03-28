@@ -1,37 +1,30 @@
-# uwget
+# uwping
 
-[![GitHub release](https://img.shields.io/github/release/m-messiah/uwget.svg?style=flat-square)](https://github.com/m-messiah/uwget/releases)
-[![Travis](https://img.shields.io/travis/m-messiah/uwget.svg?style=flat-square)](https://travis-ci.org/m-messiah/uwget)
+[![GitHub release](https://img.shields.io/github/release/che0/uwping.svg?style=flat-square)](https://github.com/che0/uwping/releases)
+[![Travis](https://img.shields.io/travis/che0/uwping.svg?style=flat-square)](https://travis-ci.org/che0/uwping)
 
-Simple tool for get requests to uwsgi socket (by uwsgi protocol)
+Simple tool to check response code of GET requests to uwsgi socket (by uwsgi protocol)
 
 ## Usage
 
 ```bash
-uwget [options] uwsgi://host:port/path
+Usage: ./uwping [options] uwsgi://host:port/path
 
 Parameters:
+  -expected_status int
+        expected_status (default 200)
   -host string
         HTTP_HOST
+  -modifier1 int
+        modifier1
   -remote string
         remote addr (default "127.0.0.1")
 ```
 
 ## Examples
 
-+   Get localhost default uwsgi root
+```bash
+uwget uwsgi://127.0.0.1:3031/health
+uwget -expected_status 404 uwsgi://127.0.0.1:3031/not_exist
 
-    ```bash
-    uwget uwsgi://127.0.0.1:3031
-    ```
-+   Pass HTTP_HOST header for admin
-
-    ```bash
-    uwget --host=example.com uwsgi://backend:3031/admin/
-    ```
-+   Use another remote address instead of localhost
-
-    ```bash
-    uwget -remote=8.8.8.8 uwsgi://localhost:3031/geo/
-    ```
-
+```
