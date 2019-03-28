@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/che0/uwping.svg?style=flat-square)](https://github.com/che0/uwping/releases)
 [![Travis](https://img.shields.io/travis/che0/uwping.svg?style=flat-square)](https://travis-ci.org/che0/uwping)
 
-Simple tool to check response code of GET requests to uwsgi socket (by uwsgi protocol)
+Simple tool to check response code of GET requests to uwsgi socket (by uwsgi protocol). Return code of the program tells whether it got response with expected status code.
 
 ## Usage
 
