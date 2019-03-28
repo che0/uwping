@@ -28,3 +28,19 @@ uwget uwsgi://127.0.0.1:3031/health
 uwget -expected_status 404 uwsgi://127.0.0.1:3031/not_exist
 
 ```
+
+You can directly use it in your Dockerfile:
+```
+ADD https://github.com/che0/uwping/releases/download/14.0/uwping /usr/local/bin/uwping
+RUN chmod +x /usr/local/bin/uwping
+```
+
+And then as liveness probe in Kubernetes pods:
+```
+      containers:
+      - livenessProbe:
+          exec:
+            command:
+              - uwping
+              - uwsgi://localhost:9090/alive
+```
